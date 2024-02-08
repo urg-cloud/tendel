@@ -1,0 +1,125 @@
+{% extends 'common.html' %} {% block title %} Tendel Hardware {% endblock %}
+{% block body %}
+ {% load static %}
+
+<!-- carosoul -->
+
+<section  class="item">
+    <div id="carouselExampleIndicators" class="carousel slide item-bg" data-ride="carousel">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src=" {% static 'image/shop-2.jpg' %}"  alt="First slide">
+          </div>
+
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="intro-section animated slideInDown" data-wow-delay="0.5s">About Us</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+
+                <li class="breadcrumb-item text-white active" aria-current="page">about</li>
+            </ol>
+        </nav>
+          </div>
+
+
+      </div>
+</section>
+
+
+	<!-- about -->
+	<section class="about-section">
+		<h1 class="text-center branch-title wow zoomIn" data-wow-delay="0.5s">About Us</h1>
+	 <div class="container-xxl " id="about">
+            <div class="container py-5 ">
+                {% for about in allabout %}
+                <div class="row g-5 align-items-center about">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h5 class="text-black fw-medium">Welcome to Tendel Hardware! </h5>
+						<p class="mb-4"> {{ about.body }}</p>
+
+                        <p class="mb-4">At Tendel Hardware, we believe that exceptional customer service is the key to building long-lasting relationships with our customers. Our knowledgeable staff is always available to answer any questions you may have about our products or services. We can also provide expert advice on which products are best suited for your specific project, ensuring that you have the right tools and materials to get the job done. </p>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-about wow fadeInUp" data-wow-delay="0.5s" src="/media/{{about.image}}">
+                    </div>
+                </div>
+				{% endfor %}
+            </div>
+        </div>
+
+       <div class="container our-mission">
+        <div class=" ">
+            <div class="row"  data-wow-delay="0.1s">
+                <div class="col-3 vision wow fadeInUp"  data-wow-delay="0.5s">
+                <!-- <h6 class="">Our mission</h6> -->
+                <img src="{% static 'image/nav-2.jpg' %}" >
+
+            </div>
+
+            <div class="col-9 col-mis wow fadeInUp"  data-wow-delay="0.5s">
+                <h6>Our Mission</h6>
+                <p>
+
+                    At Tendel Hardware, our mission's is to provide a comprehensive range of high-quality
+                     construction hardware products to meet the diverse needs of our customers. We aim to be the
+                      go-to destination for contractors, builders, and do-it-yourself enthusiasts,
+                     offering a one-stop solution for all their construction and home improvement requirements.
+
+                </p>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-3 vision wow fadeInUp"  data-wow-delay="0.5s">
+
+                    <img src="{% static 'image/n-1.png' %}" >
+                </div>
+
+                <div class="col-9 col-mis wow fadeInUp"  data-wow-delay="0.5s">
+                    <h6>Our Vision</h6>
+
+                    <p>
+                        Our vision is to create
+                      a shopping experience that is convenient, efficient, and tailored to the unique needs of our customers.
+                      By continuously innovating and staying ahead of industry trends, we strive to be the trusted partner for
+                       both professionals and homeowners,
+                    providing them with the tools and materials they need to build and improve their spaces.
+
+                    </p>
+                </div>
+
+                </div>
+            <div class="row">
+                <div class="col-3  values wow fadeInUp"  data-wow-delay="0.5s">
+                    <!-- <h6 class="">Our Values</h6> -->
+                    <img src="{% static 'image/n-6.png' %}" >
+
+                </div>
+
+                <div class="col-9 col-mis wow fadeInUp"  data-wow-delay="0.5s">
+                    <h6>Our Values</h6>
+                    <p>
+                        Our values are at the heart of everything we do. First and foremost, we prioritize quality,
+                        offering only top-quality construction hardware products from reputable brands.
+                        Customer satisfaction is another key value we hold dear. We listen to our customers'
+                         needs, provide personalized assistance, and offer prompt solutions to their queries and concerns.
+
+                    </p>
+                </div>
+
+
+                </div>
+        </div>
+    </div>
+	</section>
+
+
+
+
+
+
+
+ {% endblock %}

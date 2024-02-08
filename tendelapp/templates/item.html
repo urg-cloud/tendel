@@ -1,0 +1,88 @@
+{% extends 'common.html' %} {% block title %} Tendel Hardware {% endblock %}
+{% block body %}
+ {% load static %}
+
+<!-- carosoul -->
+<section  class="item">
+    <div id="carouselExampleIndicators" class="carousel slide item-bg" data-ride="carousel">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src=" {% static 'image/shop-2.jpg' %}"  alt="First slide">
+          </div>
+
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="intro-section animated slideInDown" data-wow-delay="0.5s">Our Products</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+
+                <li class="breadcrumb-item text-white active" aria-current="page">products</li>
+            </ol>
+        </nav>
+          </div>
+
+      </div>
+</section>
+
+
+
+
+	<div class="container-xxl py-2" id="feature">
+		<div class="container py-2 px-lg-5">
+			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+
+				<h5 class="mb-5  fw-medium branch-title">Our Items</h1>
+			</div>
+			<div class="row g-4">
+                {% for i in page %}
+				<div class="col-lg-4 col-md-6 wow fadeInUp col-prod" data-wow-delay="0.1s">
+					<div class="feature-item bg-light rounded p-4">
+						<div class="image-container">
+							<img src="/media/{{i.image}}" alt="Image 1">
+
+						  </div>
+                          <p>{{ i.title }}</p>
+
+
+
+					</div>
+				</div>
+                {% endfor %}
+
+
+
+			</div>
+		</div>
+	</div>
+	<!-- Features End -->
+
+
+<!----pagination-->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {% if page.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page.previous_page_number }}">❮</a>
+    </li>
+    {% endif %}
+
+    {% for num_page in page.paginator.page_range %}
+    <li class="page-item {% if page.number == num_page %}active{% endif %}">
+      <a class="page-link" href="?page={{ num_page }}">{{ num_page }}</a>
+    </li>
+    {% endfor %}
+
+    {% if page.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page.next_page_number }}">❯</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+
+
+
+
+ {% endblock %}
